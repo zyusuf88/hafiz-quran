@@ -19,6 +19,10 @@ const AyahWrapper = styled.div `
 display: flex;
 `
 
+const AudioWrapper = styled.div `
+margin: 20px 0px
+`
+
 const Home = () => { 
   const [ayahs, setAyahs] = useState<AyahData[]>([]);
 
@@ -31,28 +35,27 @@ const Home = () => {
   }, []);
 
 
-  console.log(ayahs)
-
 
   return (
    <Wrapper>
-    <Heading>Hafiz</Heading>
+    <Heading>Hafiz 1.0</Heading>
+    <p>Guess the surah the ayah is from</p>
     <AyahWrapper>
     {ayahs.map((a) => {
       return (
-        <AnswerCard key={a.number} arabicSurahName={a.arabicName} englishSurahName={a.englishName}/>
+        <AnswerCard isCorrect={a.audioUrl ? true : false} key={a.number} arabicSurahName={a.arabicName} englishSurahName={a.englishName}/>
       )
     })}
     </AyahWrapper>
-      <>
+      <AudioWrapper>
       {ayahs.map((a) => {
         if(a.audioUrl){
           return (
-            <AudioPlayer src={a.audioUrl} controls={true}/>
+            <AudioPlayer key={a.number} autoPlay={true} src={a.audioUrl} controls={true}/>
           )
         }
           })}
-      </>
+      </AudioWrapper>
     
    
    </Wrapper>
