@@ -38,6 +38,8 @@ const getRandomAyahs = async (): Promise<AyahData[]> => {
         }
     });
 
+    
+
     // await Promise.all(
     //     randomNumbers.map((number) =>
     //         axios.get(`http://api.alquran.cloud/v1/ayah/${number}`).then((response) => {
