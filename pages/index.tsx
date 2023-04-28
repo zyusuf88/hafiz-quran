@@ -58,17 +58,18 @@ const Home = () => {
       setIsAnswered(true);
       setIsCorrect(isCorrect);
       setSelectedCardIndex(index);
-
-      
     };
 
-    const cardBackgroundColor = (index: number) => {
+    const cardBackgroundColor = (index: number, englishName: string) => {
       if (selectedCardIndex === null) {
         return backgroundColor;
       } else if (index === selectedCardIndex) {
         return isCorrect ? '#7FFF7F' : '#FF7F7F';
+      } else if(!isCorrect && index != selectedCardIndex && selectedAyah?.englishName === englishName){
+        setTimeout('3000')
+        return '#7FFF7F';
       } else {
-        return backgroundColor;
+        return backgroundColor
       }
     };
 
@@ -91,7 +92,7 @@ const Home = () => {
             <AyahWrapper>
                 {selectedAyah && ayahs.map(({number,arabicName,englishName}, index) => {
                     return (
-                        <AnswerCard isCorrect={englishName === selectedAyah.englishName} key={number} arabicSurahName={arabicName} englishSurahName={englishName} backgroundColor={cardBackgroundColor(index)} onClick={() => handleClick(englishName === selectedAyah.englishName, index)} isAnswered={isAnswered}/>
+                        <AnswerCard isCorrect={englishName === selectedAyah.englishName} key={number} arabicSurahName={arabicName} englishSurahName={englishName} backgroundColor={cardBackgroundColor(index, englishName)} onClick={() => handleClick(englishName === selectedAyah.englishName, index)} isAnswered={isAnswered}/>
                     )
                 })}
             </AyahWrapper>
