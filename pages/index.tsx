@@ -46,6 +46,8 @@ const Home = () => {
   const [pointsCounter, setPointsCounerter] = useState(0);
   const [round, setRound] = useState(0);
 
+  console.log("selected", selectedAyah);
+
   useEffect(() => {
     setAyahs([]);
     const randomIndex = Math.floor(Math.random() * 4);
