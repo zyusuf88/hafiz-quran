@@ -1,14 +1,24 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 /* can now reference my font */
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Lobster;
   background-color: #a4b494;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 p {
-    font-family: arial;
+  font-family: arial;
 }
 
 /* my custom css */
