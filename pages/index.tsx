@@ -37,6 +37,7 @@ const Home = () => {
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
     const [isAnswered, setIsAnswered] = useState(false);
+    const [pointsCounter, setPointsCounerter] = useState(0)
 
 
     useEffect(() => {
@@ -58,6 +59,10 @@ const Home = () => {
       setIsAnswered(true);
       setIsCorrect(isCorrect);
       setSelectedCardIndex(index);
+
+      if(isCorrect){
+        setPointsCounerter(pointsCounter + 1)
+      }
     };
 
     const cardBackgroundColor = (index: number, englishName: string) => {
@@ -87,6 +92,7 @@ const Home = () => {
   
     return (
         <Wrapper>
+          <h1> Points: {pointsCounter}</h1>
             <Heading>Hafiz 1.0</Heading>
             <p>Guess the surah the ayah is from</p>
             <AyahWrapper>
