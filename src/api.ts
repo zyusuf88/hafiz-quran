@@ -28,7 +28,7 @@ const getRandomAyahs = async (): Promise<AyahData[]> => {
   const randomNumbers = generateRandomAyah();
 
   const promises = randomNumbers.map((number) =>
-    axios.get(`http://api.alquran.cloud/v1/ayah/${number}/ar.alafasy`)
+    axios.get(`https://api.alquran.cloud/v1/ayah/${number}/ar.alafasy`)
   );
   const responses = await Promise.all(promises);
   return responses.map((response) => {
