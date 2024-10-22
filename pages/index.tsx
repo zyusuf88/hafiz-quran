@@ -26,7 +26,8 @@ const AudioWrapper = styled.div`
   margin: 20px 0px;
 `;
 
-const ResetGameButton = styled.div`
+const ResetGameButton = styled.button<{ children?: React.ReactNode;
+  onClick: () => void}>`
   padding: 20px;
   background: #cad2c5;
   border-radius: 5px;
