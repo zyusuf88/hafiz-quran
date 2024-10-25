@@ -1,7 +1,7 @@
 name: Terraform AWS Production workflow
 on:
   push:
-    branches: [ main ]
+    branches: [ T114-Terraform-GitHub-actions-pipeline ]
     paths: 
       - 'terraform/**'
 
