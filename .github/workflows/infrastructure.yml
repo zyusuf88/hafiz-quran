@@ -1,13 +1,18 @@
 name: Terraform deployment workflow
 on:
   push:
-    branches: [ T114-Terraform-GitHub-actions-pipeline ]
-    # paths: 
-    #   - 'terraform/**'
+    branches: [ main ]
+    paths: 
+      - 'terraform/**'
+
+# To manage your workflow in GitHub Actions & cancel any in-progress jobs if a new one is triggered for the same branch. Prevents race conditions. 
+concurrency:
+  group: terraform-${{ github.ref }}
+  cancel-in-progress: true
+
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
-
 
 jobs: 
   terraform: 
@@ -44,6 +49,7 @@ jobs:
           terraform plan -input=false -out=tfplan
 
      - name: Terraform Apply 
+       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
        working-directory: ./terraform
        run: terraform apply -auto-approve tfplan
 
