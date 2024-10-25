@@ -1,4 +1,4 @@
-name: Terraform AWS Production workflow
+name: Terraform deployment workflow
 on:
   push:
     branches: [ T114-Terraform-GitHub-actions-pipeline ]
@@ -43,9 +43,8 @@ jobs:
        run: |
           terraform plan -input=false -out=tfplan
 
-    #  - name: Terraform Apply 
-    #    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    #    working-directory: ./terraform
-    #    run: terraform apply -auto-approve tfplan
+     - name: Terraform Apply 
+       working-directory: ./terraform
+       run: terraform apply -auto-approve tfplan
 
         
