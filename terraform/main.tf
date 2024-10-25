@@ -1,6 +1,6 @@
 
 module "network" {
-  source = "./modules/network"
+  source        = "./modules/network"
   vpc_cidr      = var.vpc_cidr
   subnet_1_cidr = var.subnet_1_cidr
   subnet_2_cidr = var.subnet_2_cidr
@@ -8,34 +8,34 @@ module "network" {
 
 
 module "ecs" {
-  source = "./modules/ecs"
-  vpc_id         = module.network.vpc_id
-  subnet_ids     = module.network.subnet_ids
-  alb_sg_id      = module.network.alb_sg_id
-  app_image      = local.team_echo_app_image
-  certificate_arn = data.aws_acm_certificate.cert.arn
-  domain_name    = var.zone_name
-  zone_id        = local.cloudflare_zone_id 
-  ecs_execution_role_arn = local.ecs_execution_role_arn  
+  source                 = "./modules/ecs"
+  vpc_id                 = module.network.vpc_id
+  subnet_ids             = module.network.subnet_ids
+  alb_sg_id              = module.network.alb_sg_id
+  app_image              = local.team_echo_app_image
+  certificate_arn        = data.aws_acm_certificate.cert.arn
+  domain_name            = var.zone_name
+  zone_id                = local.cloudflare_zone_id
+  ecs_execution_role_arn = local.ecs_execution_role_arn
 }
 
 module "cloudflare_dns" {
   source       = "./modules/cloudflare_dns"
-  zone_id      = local.cloudflare_zone_id  
-  record_name  = var.record_name          
-  record_value = module.ecs.alb_dns_name   
+  zone_id      = local.cloudflare_zone_id
+  record_name  = var.record_name
+  record_value = module.ecs.alb_dns_name
   ttl          = 300
-  proxied      = false       
-  alb_dns_name = module.ecs.alb_dns_name              
+  proxied      = false
+  alb_dns_name = module.ecs.alb_dns_name
 }
 
 resource "cloudflare_dns_record" "alb_cname_record" {
-  zone_id = local.cloudflare_zone_id  
-  name    = var.record_name            
+  zone_id = local.cloudflare_zone_id
+  name    = var.record_name
   type    = "CNAME"
-  content   = module.ecs.alb_dns_name    
+  content = module.ecs.alb_dns_name
   ttl     = var.ttl
-  proxied = var.proxied                
+  proxied = var.proxied
 }
 
 

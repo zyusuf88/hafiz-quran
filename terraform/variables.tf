@@ -30,8 +30,8 @@ variable "region" {
 }
 
 variable "record_name" {
-  type        = string
-  default     = "echo.zeynabyusuf.com"
+  type    = string
+  default = "echo.zeynabyusuf.com"
 }
 
 variable "ttl" {
