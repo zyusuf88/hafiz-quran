@@ -68,11 +68,8 @@ locals {
   cloudflare_api_token   = jsondecode(data.aws_secretsmanager_secret_version.cloudflare_api_token_version.secret_string)["api_token"]
   cloudflare_zone_id     = jsondecode(data.aws_secretsmanager_secret_version.cloudflare_zone_version.secret_string)["zone_id"]
 }
+
 # Cloudflare DNS Module
-
-
-
-
 data "aws_acm_certificate" "cert" {
   domain   = "echo.zeynabyusuf.com"
   statuses = ["ISSUED"]

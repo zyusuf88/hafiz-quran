@@ -1,12 +1,9 @@
 name: Terraform AWS Production workflow
-
-
 on:
   push:
     branches: [ main ]
     paths: 
       - 'terraform/**'
-
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
