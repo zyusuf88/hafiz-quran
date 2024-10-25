@@ -22,11 +22,6 @@ variable "zone_name" {
   default     = "zeynabyusuf.com"
 }
 
-# variable "domain_name" {
-#   description = "Subdomain name"
-#   type        = string
-#   default     = "echo.zeynabyusuf.com"
-# }
 
 variable "region" {
   description = "AWS region for deployment"
