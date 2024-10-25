@@ -1,11 +1,11 @@
 # Introducing Hafiz! 🎧 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen) 
  
-### A creative app that transforms learning the Quran into an amazing virtual experience!
+#### A creative app that transforms learning the Quran into an amazing virtual experience!
 
-##
+
 ## 💡 Inspiration Behind the App
 
-Hafiz is a concept that originated from a game my friends and I frequently engage in. As we embarked on our journey of learning the Quran, we discovered the joy of testing our progress in a competitive manner. Inspired by this experience, I decided to take on the challenge of transforming it into a captivating game!
+Hafiz is a app that originated from a game my friends and I frequently engage in. As we embarked on our journey of learning the Quran, we discovered the joy of testing our progress in a competitive manner. Inspired by this experience, I decided to take on the challenge of transforming it into a captivating game!
 
 ##
 ## ✨ Features
@@ -13,7 +13,7 @@ Hafiz is a concept that originated from a game my friends and I frequently engag
 
 ### - 📝 Guess the Surah and track your accuracy
 
-### - 🏆 Compete with yourself to improve your memorization skills
+### - 🏆 Compete with yourself to improve your memorisation skills
 
 ### - 📊 Progress tracking to measure improvement over time
 
@@ -22,16 +22,20 @@ Hafiz is a concept that originated from a game my friends and I frequently engag
 
 ![Hafiz-Quran Demo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGVlOHo0OXJ3eTMxdHhqb2N5N2Zwb3E1MnoweHpkdGZ3cmM3MXhybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TpXZNCLDprihlVzAOs/giphy.webp)
 ##
+
 ## 📋 Table of Contents
-- [🛠️ Tech Stack](#tech-stack)
-- [🚀 Installation](#installation)
- - [📝 Tips for Installation](#tips-for-installation)
-- [📖 Usage](#usage)
-- [⚙️ Local App Set Up](#local-app-set-up)
-- [📜 License](#license)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+ - [Tips for Installation](#tips-for-installation)
+- [Usage](#usage)
+- [Local App Set Up](#local-app-set-up)
+- [Contributors](#contributors)
+- [License](#license)
 
 ##
-## 🛠️ Tech Stack
+##  Tech Stack
+
+![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)
 
 ### Hafiz is built using the following technologies:
 
@@ -42,11 +46,12 @@ Hafiz is a concept that originated from a game my friends and I frequently engag
 | **API Integration**| **Quran API** 📖                                 | Utilizes [alquran.cloud API](https://alquran.cloud/api) for accessing Quranic recitations and data.               |
 | **Containerization**| **Docker** 🐋                                   | Used for packaging the application and its dependencies, ensuring consistency across different environments.      |
 | **Deployment**    | **Amazon ECS** ☁️                                | Managed container service to run the application in a scalable and secure environment.                           |
+| **Infrastructure as Code** | **Terraform** 🏗️                        | A tool for building, changing, and versioning infrastructure safely and efficiently using configuration files.    |
 | **CI/CD**         | **GitHub Actions** 🔄                            | Automates the build, test, and deployment processes, ensuring efficient code integration and delivery.            |
 
 ## 
 
-## 🚀 Installation
+## Installation
 
 First, install dependancies 
 
@@ -55,7 +60,7 @@ npm install
 ```
 
 ##
-## 📝 Tips for Installation
+## Tips for Installation
 
 > If you encounter any errors during installation, ensure that Node.js and npm are correctly installed on your system. Here are some troubleshooting tips:
 >
@@ -69,7 +74,7 @@ npm install
 > - **Node.js Installation**: If Node.js isn't installed, refer to the [Node.js Installation Guide](https://nodejs.org/en/download/) for your operating system.
 
 ##
-## 📖 Usage
+## Usage
 
 Then, run the development server:
 
@@ -84,7 +89,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 #### 3. Choose the correct Surah from the options provided.
 
 ##
-## ⚙️ Local App Set Up
+## Local App Set Up
 
 ### To run the app locally, execute the following commands:
 
@@ -107,8 +112,18 @@ docker run -p 3000:3000 hafiz-quran
 - **Maps ports:** It maps port 3000 of the host machine to port 3000 of the container, allowing you to access the app through your browser.
 
 - **Executes the application:** The command runs the application as defined in the image, making it accessible locally at http://localhost:3000.
+  
+## Contributors
 
-## 📜 License
+| Name                       | Role                   | GitHub Profile                           |
+|----------------------------|------------------------|------------------------------------------|
+| Kaltun Ahmed       | **Owner**                  | [GitHub Profile](https://github.com/KaltunAhmed)  |
+| Zeynab Yusuf               | Contributor            | [GitHub Profile](https://github.com/zyusuf88)     |
+| Kowser Hassan              | Contributor            | [GitHub Profile](https://github.com/KowserHassan)  |
+| Aaliyana Adoley Mingle     | Contributor            | [GitHub Profile](https://github.com/YanaDev49)    |
+
+
+## License
 
 ![License](https://img.shields.io/badge/license-Proprietary-blue)
 
