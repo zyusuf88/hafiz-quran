@@ -3,7 +3,7 @@ name: Terraform Destroy Workflow
 on:
   workflow_dispatch: 
     inputs:
-      confirm_destory:
+      confirm_destroy:
         description: Type "yes" to confirm infrastructure destruction'
         required: true 
         type: string
