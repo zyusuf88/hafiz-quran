@@ -1,11 +1,18 @@
 name: Terraform Destroy Workflow
 
 on:
-  workflow_dispatch
+  workflow_dispatch: 
+    inputs:
+      confirm_destory:
+        description: Type "yes" to confirm infrastructure destruction'
+        required: true 
+        type: string
 
 jobs:
   terraform-destroy:
     runs-on: ubuntu-latest
+
+    if: github.event.inputs.confirm_destroy == 'yes'
 
     steps: 
       - name: Checkout code
@@ -26,6 +33,14 @@ jobs:
       - name: Initialise Terraform
         working-directory: ./terraform
         run: terraform init
+
+      - name: Scale down ECS Service
+        working-directory: ./terraform
+        run: |
+          terraform apply -auto-approve -var="ecs_service_desired_count=0" -target=aws_ecs_service.app_service
+    
+      - name: Wait for scale down
+        run: sleep 30
 
       - name: Terraform Destroy
         working-directory: ./terraform
