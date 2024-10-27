@@ -33,12 +33,12 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build . -t hafiz-quran:latest
+        docker build . -t team-echo-app:latest
 
     - name: Tag Docker Image
       run: |
         echo "Tagging Docker Image"
-        docker tag hafiz-quran:latest ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+        docker tag team-echo-app:latest ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
 
     - name: Push the Docker image to ECR 
       run: |
