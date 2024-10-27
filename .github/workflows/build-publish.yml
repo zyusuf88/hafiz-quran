@@ -14,9 +14,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    if: github.event.inputs.confirm_destroy == 'yes'
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3

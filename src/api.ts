@@ -3,7 +3,7 @@ import axios from 'axios';
 export interface AyahData {
   arabicName: string;
   englishName: string;
-  number: number;
+  number: number; 
   audioUrl?: string;
 }
 
