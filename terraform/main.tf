@@ -74,3 +74,5 @@ data "aws_acm_certificate" "cert" {
   domain   = "echo.zeynabyusuf.com"
   statuses = ["ISSUED"]
 }
+
+

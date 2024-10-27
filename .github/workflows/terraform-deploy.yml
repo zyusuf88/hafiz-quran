@@ -1,5 +1,11 @@
 name: Terraform deployment workflow
 on:
+  workflow_dispatch: 
+    inputs:
+      confirm_destory:
+        description: Type "yes" to confirm infrastructure destruction'
+        required: true 
+        type: string
   push:
     branches: [ main ]
     paths: 
@@ -12,6 +18,9 @@ concurrency:
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
+
+
+  if: github.event.inputs.confirm_destroy == 'yes'
 
 jobs: 
   terraform: 
