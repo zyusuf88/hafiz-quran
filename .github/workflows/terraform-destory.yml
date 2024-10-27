@@ -33,11 +33,6 @@ jobs:
       - name: Initialise Terraform
         working-directory: ./terraform
         run: terraform init
-
-      - name: Scale down ECS Service
-        working-directory: ./terraform
-        run: |
-          terraform apply -auto-approve -var="ecs_service_desired_count=0" -target=aws_ecs_service.app_service
     
       - name: Wait for scale down
         run: sleep 30
