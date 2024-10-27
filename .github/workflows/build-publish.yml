@@ -3,7 +3,7 @@ name: Build and publish Docker Image
 on:
   workflow_dispatch: # for testing the workflow
     inputs:
-      confirm_destory:
+      confirm_destroy:
         description: 'Type "yes" to confirm deployment'
         required: true
         type: string
